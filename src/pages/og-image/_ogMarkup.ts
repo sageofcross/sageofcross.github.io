@@ -16,6 +16,8 @@ export const ogMarkup = (title: string, pubDate: string) =>
 					xmlns:xlink="http://www.w3.org/1999/xlink"
 					preserveAspectRatio="xMidYMid meet"
 					viewBox="122 176 400 291"
+					width="55"
+					height="40"
 				>
 					<defs>
 						<path
