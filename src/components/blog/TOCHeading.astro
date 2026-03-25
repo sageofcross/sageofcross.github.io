@@ -10,18 +10,25 @@ const {
 } = Astro.props;
 ---
 
-<li class={`${depth > 2 ? "ms-2" : ""}`}>
+<li>
 	<a
-		class={`line-clamp-2 hover:text-accent ${depth <= 2 ? "mt-3" : "mt-2 text-xs"}`}
-		href={`#${slug}`}><span aria-hidden="true" class="me-0.5">#</span>{text}</a
+		href={`#${slug}`}
+		class:list={[
+			"hover:text-accent block transition-colors",
+			depth === 2 && "text-accent mt-4 text-sm font-semibold first:mt-0",
+			depth === 3 && "mt-1.5 text-sm opacity-60 hover:opacity-100",
+			depth >= 4 && "mt-1 text-xs opacity-40 hover:opacity-80",
+		]}
 	>
+		{depth === 2 && <span aria-hidden="true"># </span>}{text}
+	</a>
 	{
 		!!children.length && (
-			<ol>
+			<ul>
 				{children.map((subheading) => (
 					<Astro.self heading={subheading} />
 				))}
-			</ol>
+			</ul>
 		)
 	}
 </li>
