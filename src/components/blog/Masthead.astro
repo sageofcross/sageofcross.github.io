@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
+import { Icon } from "astro-icon/components";
 import FormattedDate from "@/components/FormattedDate.astro";
 
 interface Props {
@@ -12,10 +13,6 @@ const {
 	content: { data },
 	readingTime,
 } = Astro.props;
-
-const dateTimeOptions: Intl.DateTimeFormatOptions = {
-	month: "long",
-};
 ---
 
 {
@@ -37,15 +34,19 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
 	{data.title}
 </h1>
 <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
-	<p class="font-semibold">
-		<FormattedDate date={data.publishDate} dateTimeOptions={dateTimeOptions} /> /{" "}
+	<span class="flex items-center gap-x-1 font-semibold">
+		<Icon name="mdi:calendar-outline" class="shrink-0.2 h-5 w-5" />
+		<FormattedDate date={data.publishDate} />
+	</span>
+	<span class="flex items-center gap-x-1 font-semibold">
+		<Icon name="mdi:clock-outline" class="h-5 w-5 shrink-0" />
 		{readingTime}
-	</p>
+	</span>
 	{
 		data.updatedDate && (
-			<span class="bg-quote/5 text-quote rounded-lg px-2 py-1">
-				Updated:
-				<FormattedDate class="ms-1" date={data.updatedDate} dateTimeOptions={dateTimeOptions} />
+			<span class="bg-quote/5 text-quote flex items-center gap-x-1 rounded-lg px-2 py-1">
+				<Icon name="mdi:pencil-outline" class="h-5 w-5 shrink-0" />
+				<FormattedDate date={data.updatedDate} />
 			</span>
 		)
 	}

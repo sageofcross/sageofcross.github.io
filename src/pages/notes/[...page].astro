@@ -21,20 +21,20 @@ interface Props {
 const { page } = Astro.props;
 
 const meta = {
-	description: "Read my collection of notes",
-	title: "Notes",
+	description: "查看部落格內所有的筆記內容",
+	title: "筆記列表",
 };
 
 const paginationProps = {
 	...(page.url.prev && {
 		prevUrl: {
-			text: "← Previous Page",
+			text: "← 上一頁",
 			url: page.url.prev,
 		},
 	}),
 	...(page.url.next && {
 		nextUrl: {
-			text: "Next Page →",
+			text: "下一頁 →",
 			url: page.url.next,
 		},
 	}),
