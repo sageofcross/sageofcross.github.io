@@ -12,8 +12,17 @@ const { headings } = Astro.props;
 const toc = generateToc(headings);
 ---
 
-<nav class="hidden lg:fixed lg:top-24 lg:right-8 lg:order-2 lg:block lg:w-52 lg:text-right">
+<nav id="toc-nav" class="hidden lg:fixed lg:right-8 lg:order-2 lg:block lg:w-52 lg:text-right">
 	<ul>
 		{toc.map((heading) => <TOCHeading heading={heading} />)}
 	</ul>
 </nav>
+
+<script>
+	const tocNav = document.getElementById("toc-nav");
+	const articleTitle = document.querySelector("article h1");
+	if (tocNav && articleTitle) {
+		const titleTop = articleTitle.getBoundingClientRect().top;
+		tocNav.style.top = `${titleTop}px`;
+	}
+</script>
