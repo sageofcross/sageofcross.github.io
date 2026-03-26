@@ -1,5 +1,5 @@
 ## 個人部落格
-使用 [Astro](https://astro.build/) 框架並搭配主題 [chrismwilliams/astro-theme-cactus](https://github.com/chrismwilliams/astro-theme-cactus) 。
+使用 [Astro](https://astro.build/) 框架並搭配主題 [chrismwilliams/astro-theme-cactus](https://github.com/chrismwilliams/astro-theme-cactus) ，部署選擇了 Astro 官方維護的 [GitHub Action](https://github.com/withastro/action) 。
 
 為了方便確認主題是否有更新，建議將其設定為上游：
 
