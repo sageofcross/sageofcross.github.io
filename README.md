@@ -4,7 +4,7 @@
 為了方便確認主題是否有更新，建議將其設定為上游：
 
 ```shell
-$ git remote add https://github.com/chrismwilliams/astro-theme-cactus.git
+$ git remote add upstream https://github.com/chrismwilliams/astro-theme-cactus.git
 ```
 
 ## 致謝
